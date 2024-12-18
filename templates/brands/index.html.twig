@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<div class="container my-5">
+		<h1>{{ brand.name }}</h1>
+
+
+		<p>Cette page vous renseigne sur tous nos véhicules de la marque
+			<strong>{{ brand.name }}</strong>
+			({{brand.models|length}})
+		</p>
+		<div class="row">
+
+			{%for model  in brand.models%}
+				<div class="col-md-12 mt-3">
+					<img src="/uploads/{{model.illustration}}" alt="" class="img-fluid"/>
+					<strong>{{model.name}}</strong>
+					<span>{{model.price|price}}</span>
+					<p>{{model.description|raw}}</p>
+				</div>
+				{%endfor%}</p>
+
+		</div>
+
+
+	</div>
+{% endblock %}
